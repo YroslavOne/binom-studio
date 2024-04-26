@@ -1,0 +1,11 @@
+.img {
+	/* width: 400px; */
+}
+
+.button {
+	margin: 0 24px;
+	cursor: 'pointer';
+	position: absolute;
+	left: 0;
+	z-index: 1;
+}

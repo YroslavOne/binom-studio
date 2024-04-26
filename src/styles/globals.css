@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.div {
+	width: 30%;
+}
+
+body {
+	padding: 40px;
+}
