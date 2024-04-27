@@ -1,16 +1,16 @@
-import { useRouter } from 'next/router';
-import { fetchPost } from '../../helpers/api';
-import BlogCard from '../../components/blogCard/BlogCard';
-import Loading from '@/components/loading/Loading';
-import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
-import { GetServerSidePropsContext } from 'next';
+import { useRouter } from "next/router";
+import { fetchPost } from "../../helpers/api";
+import BlogCard from "../../components/blogCard/BlogCard";
+import Loading from "@/components/loading/Loading";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+import { GetServerSidePropsContext } from "next";
 
 const PostPage = () => {
   const router = useRouter();
   const { id } = router.query;
   console.log(id);
   const { data, isLoading, error } = useQuery({
-    queryKey: ['blog', id],
+    queryKey: ["blog", id],
     queryFn: () => fetchPost(id),
   });
   if (isLoading) {
@@ -41,7 +41,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   const queryClient = new QueryClient();
 
   queryClient.prefetchQuery({
-    queryKey: ['blog', id],
+    queryKey: ["blog", id],
     queryFn: () => fetchPost(id),
   });
 

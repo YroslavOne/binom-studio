@@ -1,11 +1,11 @@
-import Loading from '@/components/loading/Loading';
-import { fetchPosts } from '@/helpers/api';
-import useHomePageData from '@/helpers/hooks';
-import { QueryClient, dehydrate } from '@tanstack/react-query';
-import { Flex, Pagination } from 'antd';
-import { GetServerSidePropsContext } from 'next';
-import { useRouter } from 'next/router';
-import Blog from '../components/blog/Blog';
+import Loading from "@/components/loading/Loading";
+import { fetchPosts } from "@/helpers/api";
+import useHomePageData from "@/helpers/hooks";
+import { QueryClient, dehydrate } from "@tanstack/react-query";
+import { Flex, Pagination } from "antd";
+import { GetServerSidePropsContext } from "next";
+import { useRouter } from "next/router";
+import Blog from "../components/blog/Blog";
 
 export default function Home() {
   const router = useRouter();
@@ -21,7 +21,7 @@ export default function Home() {
     <Flex align="center" vertical>
       <Flex wrap="wrap" gap={50} flex="1 1 30%">
         {data.blogs?.map((blog: BlogsProps) => (
-          <div key={blog.id} style={{ flex: '1 1 30%' }}>
+          <div key={blog.id} style={{ flex: "1 1 30%" }}>
             <Blog
               id={blog.id}
               image={blog.photo_url}
@@ -36,7 +36,7 @@ export default function Home() {
         defaultPageSize={pageSize}
         onChange={(current: number, pageSize: number) => {
           router.push({
-            pathname: '/',
+            pathname: "/",
             query: { page: current, pageSize: pageSize },
           });
         }}
@@ -47,12 +47,12 @@ export default function Home() {
 }
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
-  const page = ctx.query.page || '1';
-  const pageSize = ctx.query.pageSize || '10';
+  const page = ctx.query.page || "1";
+  const pageSize = ctx.query.pageSize || "10";
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ['blogs', page, pageSize],
+    queryKey: ["blogs", page, pageSize],
     queryFn: () => fetchPosts(page, pageSize),
   });
 

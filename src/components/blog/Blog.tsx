@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import styles from './Blog.module.css';
-import { BlogProps } from './Blog.props';
-import { Typography, Image } from 'antd';
+import Link from "next/link";
+import styles from "./Blog.module.css";
+import { BlogProps } from "./Blog.props";
+import { Typography, Image } from "antd";
 
 function Blog({ id, image, title, date }: BlogProps) {
   const { Title } = Typography;
@@ -14,10 +14,10 @@ function Blog({ id, image, title, date }: BlogProps) {
         <div>
           <Title>{title}</Title>
           <p>
-            {new Date(date).toLocaleString('ru', {
-              year: 'numeric',
-              month: '2-digit',
-              day: '2-digit',
+            {new Date(date).toLocaleString("ru", {
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
             })}
           </p>
         </div>

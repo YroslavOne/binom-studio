@@ -1,4 +1,4 @@
-export const baseUrl = 'https://api.slingacademy.com/v1/sample-data/blog-posts';
+export const baseUrl = "https://api.slingacademy.com/v1/sample-data/blog-posts";
 type QueryItem = string | string[] | undefined;
 
 export async function fetchPosts(offset: QueryItem, limit: QueryItem) {
@@ -13,7 +13,7 @@ export async function fetchPosts(offset: QueryItem, limit: QueryItem) {
     }&limit=${limitNumber}`
   );
   if (!res.ok) {
-    throw new Error('Failed to fetch posts');
+    throw new Error("Failed to fetch posts");
   }
 
   return res.json();
