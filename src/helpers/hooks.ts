@@ -10,7 +10,7 @@ const useHomePageData = () => {
 
   const q = useQuery({
     queryKey: ["blogs", page, pageSize],
-    queryFn: () => fetchPosts(Number(page), Number(pageSize)),
+    queryFn: () => fetchPosts(page, pageSize),
     retry: 0,
   });
   return {

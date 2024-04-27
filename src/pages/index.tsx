@@ -6,6 +6,7 @@ import { Flex, Pagination } from "antd";
 import { GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
 import Blog from "../components/blog/Blog";
+import {BlogsProps} from '../components/blog/Blog.props'
 
 export default function Home() {
   const router = useRouter();

@@ -24,7 +24,7 @@ function BlogCard({ id, image, title, description, date }: BlogCardProps) {
       <Flex gap="middle" align="center" justify="center" flex="1 1 10%">
         <Flex style={{ width: "30%" }} vertical key={id}>
           <div className={styles[""]}>
-            <Image align="center" src={image} />
+            <Image src={image} />
           </div>
           <div>
             <Title level={1}>{title}</Title>
